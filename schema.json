@@ -1,0 +1,350 @@
+{
+  "$id": "helm-parnert-chart.json",
+  "type": "object",
+  "description": "Helm chart Schema for partner-charts repository",
+  "required": [
+    "annotations",
+    "apiVersion",
+    "appVersion",
+    "description",
+    "home",
+    "icon",
+    "name",
+    "sources",
+    "version"
+  ],
+  "properties": {
+    "annotations": {
+      "type": "object",
+      "description": "A list of annotations keyed by name",
+      "required": [
+        "licenses",
+        "documentation_url"
+      ],
+      "properties": {
+        "licenses": {
+          "type": "string",
+          "description": "It represents a software license",
+          "enum": [
+            "0BSD",
+            "AAL",
+            "AFL-3.0",
+            "AGPL-3.0-only",
+            "Apache-1.1",
+            "Apache-2.0",
+            "APL-1.0",
+            "APSL-2.0",
+            "Artistic-1.0",
+            "Artistic-1.0-Perl",
+            "Artistic-2.0",
+            "BlueOak-1.0.0",
+            "BSD-1-Clause",
+            "BSD-2-Clause",
+            "BSD-2-Clause-Patent",
+            "BSD-3-Clause",
+            "BSD-3-Clause-LBNL",
+            "BSL-1.0",
+            "CAL-1.0",
+            "CATOSL-1.1",
+            "CDDL-1.0",
+            "CECILL-2.1",
+            "CERN-OHL-P-2.0",
+            "CERN-OHL-S-2.0",
+            "CERN-OHL-W-2.0",
+            "CNRI-Python",
+            "CPAL-1.0",
+            "CPL-1.0",
+            "CUA-OPL-1.0",
+            "ECL-1.0",
+            "ECL-2.0",
+            "eCos-2.0",
+            "EFL-1.0",
+            "EFL-2.0",
+            "Entessa",
+            "EPL-1.0",
+            "EPL-2.0",
+            "EUDatagrid",
+            "EUPL-1.1",
+            "EUPL-1.2",
+            "Fair",
+            "Frameworx-1.0",
+            "GPL-2.0",
+            "GPL-3.0-only",
+            "HPND",
+            "ICU",
+            "Intel",
+            "IPA",
+            "IPL-1.0",
+            "ISC",
+            "Jam",
+            "LGPL-2.0-only",
+            "LGPL-2.1",
+            "LGPL-3.0-only",
+            "LiLiQ-P-1.1",
+            "LiLiQ-R-1.1",
+            "LiLiQ-Rplus-1.1",
+            "LPL-1.0",
+            "LPL-1.02",
+            "LPPL-1.3c",
+            "MirOS",
+            "MIT",
+            "MIT-0",
+            "Motosoto",
+            "MPL-1.0",
+            "MPL-1.1",
+            "MPL-2.0",
+            "MS-PL",
+            "MS-RL",
+            "MulanPSL-2.0",
+            "Multics",
+            "NASA-1.3",
+            "Naumen",
+            "NCSA",
+            "NGPL",
+            "NOKIA",
+            "NPOSL-3.0",
+            "NTP",
+            "OFL-1.1",
+            "OGTSL",
+            "OLDAP-2.8",
+            "OLFL-1.3",
+            "OSET-PL-2.1",
+            "OSL-1.0",
+            "OSL-2.1",
+            "OSL-3.0",
+            "PHP-3.0",
+            "PHP-3.01",
+            "PostgreSQL",
+            "PSF-2.0",
+            "QPL-1.0",
+            "RPL-1.1",
+            "RPL-1.5",
+            "RPSL-1.0",
+            "RSCPL",
+            "SimPL-2.0",
+            "SISSL",
+            "Sleepycat",
+            "SPL-1.0",
+            "UCL-1.0",
+            "Unicode-DFS-2015",
+            "Unlicense",
+            "UPL-1.0",
+            "VSL-0.1",
+            "W3C-20150513",
+            "Watcom-1.0",
+            "wxWindows",
+            "Xnet",
+            "Zlib",
+            "ZPL-2.0",
+            "ZPL-2.1"
+          ],
+          "examples": [
+            "Apache-2.0"
+          ]
+        },
+        "documentation_url": {
+          "type": "string",
+          "format": "uri",
+          "description": "Internet location of the documentation for the given application",
+          "examples": [
+            "https://cassandra.apache.org/doc/latest/"
+          ]
+        }
+      },
+      "examples": [
+        {
+          "licenses": "Apache-2.0",
+          "documentation_url": "https://cassandra.apache.org/doc/latest/"
+        }
+      ]
+    },
+    "apiVersion": {
+      "const": "v2",
+      "description": "The chart API version"
+    },
+    "appVersion": {
+      "type": "string",
+      "description": "The version of the app that this contains",
+      "examples": [
+        "v1.14.2"
+      ]
+    },
+    "description": {
+      "type": "string",
+      "minLength": 50,
+      "description": "A single-sentence description of this project",
+      "examples": [
+        "A Helm chart for cert-manager"
+      ]
+    },
+    "home": {
+      "type": "string",
+      "description": "The URL of this projects home page",
+      "format": "uri",
+      "examples": [
+        "https://github.com/cert-manager/cert-manager"
+      ]
+    },
+    "icon": {
+      "type": "string",
+      "description": "A URL to an SVG or PNG image to be used as an icon",
+      "format": "uri",
+      "examples": [
+        "https://raw.githubusercontent.com/cert-manager/cert-manager/d53c0b9270f8cd90d908460d69502694e1838f5f/logo/logo-small.png"
+      ]
+    },
+    "keywords": {
+      "type": "array",
+      "description": "A list of keywords about this project",
+      "items": {
+        "type": "string",
+        "description": "A keyword",
+        "examples": [
+          "cert-manager",
+          "kube-lego",
+          "letsencrypt",
+          "tls"
+        ]
+      },
+      "examples": [
+        [
+          "cert-manager",
+          "kube-lego",
+          "letsencrypt",
+          "tls"
+        ]
+      ]
+    },
+    "maintainer": {
+      "type": "object",
+      "description": "A maintainer",
+      "anyOf": [
+        {
+          "required": [
+            "name",
+            "email"
+          ]
+        },
+        {
+          "required": [
+            "name",
+            "url"
+          ]
+        }
+      ],
+      "properties": {
+        "email": {
+          "type": "string",
+          "description": "The maintainers email",
+          "format": "email",
+          "examples": [
+            "cert-manager-maintainers@googlegroups.com"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "The maintainer name",
+          "examples": [
+            "cert-manager-maintainers"
+          ]
+        },
+        "url": {
+          "type": "string",
+          "description": "A URL for the maintainer",
+          "format": "uri",
+          "examples": [
+            "https://cert-manager.io"
+          ]
+        }
+      },
+      "examples": [
+        {
+          "email": "cert-manager-maintainers@googlegroups.com",
+          "name": "cert-manager-maintainers"
+        }
+      ]
+    },
+    "maintainers": {
+      "type": "array",
+      "description": "Maintainers of the helm chart",
+      "items": {
+        "$ref": "#/properties/maintainer"
+      },
+      "examples": [
+        [
+          {
+            "email": "cert-manager-maintainers@googlegroups.com",
+            "name": "cert-manager-maintainers",
+            "url": "https://cert-manager.io"
+          }
+        ]
+      ]
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the chart",
+      "examples": [
+        "cert-manager"
+      ]
+    },
+    "sources": {
+      "type": "array",
+      "description": "A list of URLs to source code for this project",
+      "maxLength": 1,
+      "items": {
+        "type": "string",
+        "description": "An URLs to source code for this project",
+        "examples": [
+          "https://github.com/cert-manager/cert-manager"
+        ]
+      },
+      "examples": [
+        [
+          "https://github.com/cert-manager/cert-manager"
+        ]
+      ]
+    },
+    "version": {
+      "type": "string",
+      "description": "A SemVer 2 version",
+      "minLength": 5,
+      "maxLength": 14,
+      "pattern": "^(?:0|[1-9]\\d*)\\.(?:0|[1-9]\\d*)\\.(?:0|[1-9]\\d*)$",
+      "examples": [
+        "1.14.2"
+      ]
+    }
+  },
+  "examples": [
+    {
+      "annotations": {
+        "license": "Apache-2.0",
+        "documentation_url": "false"
+      },
+      "apiVersion": "v1",
+      "appVersion": "v1.14.2",
+      "description": "A Helm chart for cert-manager",
+      "home": "https://github.com/cert-manager/cert-manager",
+      "icon": "https://raw.githubusercontent.com/cert-manager/cert-manager/d53c0b9270f8cd90d908460d69502694e1838f5f/logo/logo-small.png",
+      "keywords": [
+        "cert-manager",
+        "kube-lego",
+        "letsencrypt",
+        "tls"
+      ],
+      "kubeVersion": ">= 1.22.0-0",
+      "maintainers": [
+        {
+          "email": "cert-manager-maintainers@googlegroups.com",
+          "name": "cert-manager-maintainers",
+          "url": "https://cert-manager.io"
+        }
+      ],
+      "name": "cert-manager",
+      "sources": [
+        "https://github.com/cert-manager/cert-manager"
+      ],
+      "version": "v1.14.2"
+    }
+  ]
+}

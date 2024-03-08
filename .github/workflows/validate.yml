@@ -1,0 +1,36 @@
+name: Validate Charts
+
+on:
+  push
+#  workflow_dispatch:
+#    inputs:
+#      package:
+#        description: 'Package validate'  
+#        default: 'linkerd/linkerd-control-plane'
+#      path_to_charts:
+#        description: 'Chart to validate'
+#        required: true
+#        default: 'charts/linkerd/linkerd-control-plane/Chart.yaml'
+ 
+
+jobs:
+  verify-json-validation:
+    runs-on: ubuntu-latest
+    env:
+      CI_TOOLS_URL: https://github.com/samuelattwood/partner-charts-ci/releases/latest/download/partner-charts-ci-linux-amd64
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Fetch CI Tools
+        run: |
+          curl -s -L -o /usr/local/bin/partner-charts-ci $CI_TOOLS_URL
+          chmod +x /usr/local/bin/partner-charts-ci      
+      - run: npm install -g ajv-cli ajv-formats
+      - name: Validate 
+        run: |
+          chmod +x scripts/exec-validations
+          bash -c scripts/exec-validations

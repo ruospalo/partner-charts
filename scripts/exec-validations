@@ -1,0 +1,10 @@
+#!/bin/bash
+
+readarray -t PACKAGES_CHANGED < <(git diff origin/main-source --name-status | grep upstream.yaml)
+for PACKAGE_CHANGED in "${PACKAGES_CHANGED[@]}"; do 
+    export PACKAGE=$(echo $PACKAGE_CHANGED | grep -oP ".*packages/\K([^/]+/[^/]+)")
+    export ENTRY=$(echo $PACKAGE | grep -oP ".*/\K([^/]+)" )
+    yq eval "del(.entries.$ENTRY)" index.yaml --inplace 
+    partner-charts-ci auto   
+    ajv validate -s schema.json -d "charts/$PACKAGE/Chart.yaml" --all-errors -c ajv-formats
+done
