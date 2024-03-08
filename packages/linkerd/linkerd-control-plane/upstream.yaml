@@ -2,3 +2,6 @@ HelmRepo: https://helm.linkerd.io/stable
 HelmChart: linkerd-control-plane
 Vendor: Linkerd
 DisplayName: Linkerd Control Plane
+ChartMetadata:
+  annotations:
+    licenses: Apache-2.0

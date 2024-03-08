@@ -2,3 +2,6 @@ HelmRepo: https://charts.konghq.com
 HelmChart: kong
 Vendor: Kong
 DisplayName: Kong Gateway
+ChartMetadata:
+  annotations:
+    licenses: Apache-2.0
