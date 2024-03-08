@@ -2,15 +2,6 @@ name: Validate Charts
 
 on:
   push
-#  workflow_dispatch:
-#    inputs:
-#      package:
-#        description: 'Package validate'  
-#        default: 'linkerd/linkerd-control-plane'
-#      path_to_charts:
-#        description: 'Chart to validate'
-#        required: true
-#        default: 'charts/linkerd/linkerd-control-plane/Chart.yaml'
  
 
 jobs:
