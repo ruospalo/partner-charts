@@ -318,7 +318,7 @@
   "examples": [
     {
       "annotations": {
-        "license": "Apache-2.0",
+        "licenses": "Apache-2.0",
         "documentation_url": "false"
       },
       "apiVersion": "v1",
