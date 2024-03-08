@@ -5,3 +5,4 @@ DisplayName: Linkerd Control Plane
 ChartMetadata:
   annotations:
     licenses: Apache-2.0
+    documentation_url: https://linkerd.io/docs/
